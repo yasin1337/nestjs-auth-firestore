@@ -4,12 +4,10 @@ import { CatService } from './cat.service';
 @Controller('cat')
 export class CatController {
     constructor(private readonly catService: CatService) {}
-
     @Get()
     getRootMessage() : string {
         return this.catService.defaultPage();
     }
-
     @Get('all')
     getAll() : {name: string, age: number} [] {
         return this.catService.returnCatData();
