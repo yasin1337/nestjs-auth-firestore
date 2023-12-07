@@ -13,7 +13,7 @@ export class CatController {
         return this.catService.returnCatData();
     }
 
-    @Get(':name')
+    @Get('catname/:name')
     getCatByName(@Param('name') name: string): any {
         const cat = this.catService.findbyName(name);
         return cat ? cat : { message: 'Unknown cat', name };
@@ -25,13 +25,10 @@ export class CatController {
 
         return catData;
     }
-    @Delete(':name')
+    @Delete('catname/:name')
     deleteCatByName(@Param('name') name: string) : any {
         const del = this.catService.deleteCat(name);
  
         return del;
     }
-
-
-    
 }
